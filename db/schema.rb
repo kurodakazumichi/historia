@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504082110) do
+ActiveRecord::Schema.define(version: 20180504161929) do
 
   create_table "histories", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20180504082110) do
     t.integer "technology_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "year"
+    t.string "month"
+    t.string "day"
     t.index ["technology_id"], name: "index_histories_on_technology_id"
   end
 
