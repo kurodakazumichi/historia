@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<% if @technology.year? %>
-誕生日：<%= @technology.year %>年頃
-<% else %>
-誕生日：不明
-<% end %>
+<p>
+  <span>誕生日：</span><%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)
+</p>
+
+
 
 <p>
   <strong>Name:</strong>
