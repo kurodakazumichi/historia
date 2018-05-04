@@ -9,6 +9,7 @@
 </p>
 
 <h2>歴史</h2>
+<%= link_to "New History", new_technology_history_path(@technology) %>
 <% if @technology.histories.any? %>
 <ul>
   <% @technology.histories.each do |history| %>
