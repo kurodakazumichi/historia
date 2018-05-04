@@ -14,6 +14,7 @@
 <ul>
   <% @technology.histories.each do |history| %>
   <li>
+    <%= date(history.year, history.month, history.day) %>
     <%= history.title %>
     <%= link_to(
       '[Edit]',
