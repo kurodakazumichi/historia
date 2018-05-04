@@ -11,6 +11,13 @@
 </p>
 
 <h3>Histories</h3>
+<% if @technology.histories.any? %>
+<ul>
+  <% @technology.histories.each do |history| %>
+  <li><%= history.title %></li>
+  <% end %>
+</ul>
+<% end %>
 
 <%= form_for([@technology, @technology.histories.build]) do |f| %>
   <%= f.text_field(:title, {placeholder:'enter title'})  %>
