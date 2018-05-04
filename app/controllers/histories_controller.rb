@@ -2,6 +2,7 @@ class HistoriesController < ApplicationController
 
   def new
     @technology = Technology.find(params[:technology_id])
+    @history = @technology.histories.new
   end
 
   def edit
@@ -11,16 +12,24 @@ class HistoriesController < ApplicationController
 
   def create
     @technology = Technology.find(params[:technology_id])
+    @history = @technology.histories.new(history_params)
+    if @history.save
+      redirect_to new_technology_history(@technology)
+    else
+      render :new
+    end
 
-    @technology.histories.create(history_params)
-    redirect_to technology_path(@technology)
   end
 
   def update
     @technology = Technology.find(params[:technology_id])
     @history = @technology.histories.find(params[:id])
-    @history.update(history_params)
-    redirect_to edit_technology_history_path(@technology, @history)
+    if @history.update(history_params)
+      redirect_to edit_technology_history_path(@technology, @history)
+    else
+      render :edit
+    end
+
   end
 
   def destroy
