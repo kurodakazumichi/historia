@@ -21,6 +21,15 @@
     <%= form.text_area :description, id: :technology_description %>
   </div>
 
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.text_field :year, id: :technology_year %>
+    <%= form.label :month %>
+    <%= form.text_field :month, id: :technology_month %>
+    <%= form.label :day %>
+    <%= form.text_field :day, id: :technology_day %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
