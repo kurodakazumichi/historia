@@ -1,22 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <span>誕生日：</span><%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)
-</p>
+<h1><%= @technology.name %></h1>
 
-
+<h2>誕生日：<%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)</h2>
 
 <p>
-  <strong>Name:</strong>
-  <%= @technology.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @technology.description %>
 </p>
 
-<h3>Histories</h3>
+<h2>歴史</h2>
 <% if @technology.histories.any? %>
 <ul>
   <% @technology.histories.each do |history| %>
