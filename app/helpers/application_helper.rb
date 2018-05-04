@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def date(y, m, d)
     s  = "#{y}年"
-    s += "#{m}月" if !y.empty?
+    s += "#{m}月" if !m.empty?
     s += "#{d}日" if !m.empty? && !d.empty?
     s += "頃"     if m.empty? || d.empty?
     return s
