@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/index'
+
   root 'technologies#index'
 
   resources :technologies do
