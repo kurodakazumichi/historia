@@ -16,6 +16,10 @@
   <li>
     <%= history.title %>
     <%= link_to(
+      '[Edit]',
+      edit_technology_history_path(@technology, history)
+    ) %>
+    <%= link_to(
       '[x]',
       technology_history_path(@technology, history),
       {
