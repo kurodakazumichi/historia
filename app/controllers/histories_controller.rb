@@ -4,6 +4,11 @@ class HistoriesController < ApplicationController
     @technology = Technology.find(params[:technology_id])
   end
 
+  def edit
+    @technology = Technology.find(params[:technology_id])
+    @history = @technology.histories.find(params[:id])
+  end
+
   def create
     @technology = Technology.find(params[:technology_id])
 
