@@ -34,6 +34,9 @@
 <% end %>
 
 <%= form_for([@technology, @technology.histories.build]) do |f| %>
+  <%= f.text_field(:year, {placeholder:'1999'})  %>
+  <%= f.text_field(:month, {placeholder:'1'})  %>
+  <%= f.text_field(:day, {placeholder:'1'})  %>
   <%= f.text_field(:title, {placeholder:'enter title'})  %>
   <%= f.submit %>
 <% end %>
