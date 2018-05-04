@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'pages/index'
 
-  root 'technologies#index'
+  root 'pages#index'
 
   resources :technologies do
     resources :histories
