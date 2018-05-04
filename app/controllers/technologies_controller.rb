@@ -10,6 +10,7 @@ class TechnologiesController < ApplicationController
   # GET /technologies/1
   # GET /technologies/1.json
   def show
+    @histories = @technology.histories.order(:year, :month, :day)
   end
 
   # GET /technologies/new

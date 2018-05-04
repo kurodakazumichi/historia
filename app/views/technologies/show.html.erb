@@ -12,7 +12,7 @@
 <%= link_to "New History", new_technology_history_path(@technology) %>
 <% if @technology.histories.any? %>
 <ul>
-  <% @technology.histories.each do |history| %>
+  <% @histories.each do |history| %>
   <li>
     <%= date(history.year, history.month, history.day) %>
     <%= history.title %>
