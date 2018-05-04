@@ -16,6 +16,13 @@ class HistoriesController < ApplicationController
     redirect_to technology_path(@technology)
   end
 
+  def update
+    @technology = Technology.find(params[:technology_id])
+    @history = @technology.histories.find(params[:id])
+    @history.update(history_params)
+    redirect_to edit_technology_history_path(@technology, @history)
+  end
+
   def destroy
     @technology = Technology.find(params[:technology_id])
     @history = @technology.histories.find(params[:id])
@@ -25,6 +32,6 @@ class HistoriesController < ApplicationController
 
   private
   def history_params
-    params.require(:history).permit(:title)
+    params.require(:history).permit(:title, :description)
   end
 end
