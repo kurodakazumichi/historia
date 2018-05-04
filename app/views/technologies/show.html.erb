@@ -14,7 +14,18 @@
 <% if @technology.histories.any? %>
 <ul>
   <% @technology.histories.each do |history| %>
-  <li><%= history.title %></li>
+  <li>
+    <%= history.title %>
+    <%= link_to(
+      '[x]',
+      technology_history_path(@technology, history),
+      {
+        method: :delete,
+        class: 'command',
+        data: { confirm: 'Sure?'}
+      }
+    ) %>
+  </li>
   <% end %>
 </ul>
 <% end %>
