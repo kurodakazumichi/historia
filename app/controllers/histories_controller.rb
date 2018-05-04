@@ -32,6 +32,6 @@ class HistoriesController < ApplicationController
 
   private
   def history_params
-    params.require(:history).permit(:title, :description)
+    params.require(:history).permit(:title, :description, :year, :month, :day)
   end
 end
