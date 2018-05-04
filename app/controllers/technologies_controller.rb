@@ -4,7 +4,7 @@ class TechnologiesController < ApplicationController
   # GET /technologies
   # GET /technologies.json
   def index
-    @technologies = Technology.all
+    @technologies = Technology.all.order(:year, :month, :day)
   end
 
   # GET /technologies/1
