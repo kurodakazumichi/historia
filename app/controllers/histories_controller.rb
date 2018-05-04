@@ -14,7 +14,7 @@ class HistoriesController < ApplicationController
     @technology = Technology.find(params[:technology_id])
     @history = @technology.histories.new(history_params)
     if @history.save
-      redirect_to new_technology_history(@technology)
+      redirect_to new_technology_history_path(@technology)
     else
       render :new
     end
