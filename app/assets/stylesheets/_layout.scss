@@ -1,0 +1,129 @@
+//==============================================================================
+// All
+body {
+  font-size: 16px;
+  background-image:url(bg.png);
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+//==============================================================================
+// begin header block
+.header {
+
+  background-color: $color_main;
+  overflow: hidden;
+
+  //----------------------------------------------------------------------------
+  // begine elements
+  &__{
+    &title {
+
+      font-size: 30px;
+      line-height: 40px;
+      font-weight: bold;
+      margin: 10px 15px 6px;
+
+      a {
+        color: $color_text__l;
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+//==============================================================================
+// begin nav block
+.nav {
+
+  background-color: #111;
+  overflow: hidden;
+  margin: 0;
+
+  //----------------------------------------------------------------------------
+  // begine elements
+  &__ {
+
+    // navigation menus
+    &menu {
+      margin:0;
+
+      a {
+        color: $color_text__l;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 15px;
+        line-height: 2.0em;
+
+        &:hover {
+          color: $color_main;
+        }
+      }
+    }
+  }
+}
+
+//==============================================================================
+// begin contents block
+.contents {
+  overflow: hidden;
+
+  //----------------------------------------------------------------------------
+  // begine elements
+  &__{
+
+    &block {
+
+      margin: 0 auto;
+
+      &.-wide{
+        margin:0 5%;
+      }
+
+      &.-basic {
+        width: 1000px;
+      }
+
+    }
+  }
+}
+
+//==============================================================================
+// begin art block
+.main {
+  background-color: white;
+  min-height:100vh;
+  padding:32px;
+
+  &__{
+
+    &title {
+      font-weight: bold;
+
+      // 見出し1
+      &.-h1 {
+        color: $color_main;
+        font-size: 36px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      // 見出し2
+      &.-h2 {
+        color: #333;
+        font-size:28px;
+        border-bottom: 1px solid #ddd;
+      }
+
+    }
+  }
+}
+
+.footer {
+  &__ {
+    &wrap {
+      text-align: center;
+      color: $color_text__l;
+      background-color: #111;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<%= form_with(model: technology, local: true) do |form| %>
+<%= form_with(model: technology, local: true, html: {class: "c-form"}) do |form| %>
   <% if technology.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(technology.errors.count, "error") %> prohibited this technology from being saved:</h2>
@@ -13,19 +13,18 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :technology_name %>
+    <%= form.text_field :name, id: :technology_name, class: "c-form__string" %>
   </div>
-
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :technology_description %>
-  </div>
-
-  <div class="field">
+    <div><%= form.label "誕生日" %></div>
     <%= formYmd form %>
   </div>
-
   <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :technology_description, class: "c-form__text" %>
+  </div>
+  <div class="field">
+    <div><%= form.label "タグ" %></div>
     <%= select_tag(
       'technology[tags]',
       options_for_select(tags, technology.tags.pluck(:name)),

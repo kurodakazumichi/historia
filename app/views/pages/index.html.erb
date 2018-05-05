@@ -1,34 +1,38 @@
-<h1>Historia</h1>
-
-<table>
-  <tr>
-    <th style="width:100px">時期</th>
-    <% @technologies.each do |t| %>
-      <th><%= t.name %></th>
-    <% end %>
-  </tr>
-  <tr>
-    <th> </th>
-    <% @technologies.each do |t| %>
-      <th>
-        <%= render 'shared/tags', technology: t %>
-      </th>
-    <% end %>
-  </tr>
-  <% @histories.each do |h| %>
-    <tr>
-      <td class="exists"><%= date h.year, h.month, h.day %></td>
-      <% @technologies.each do |t| %>
-
-
-          <%if t.id == h.technology_id %>
-            <td class="exists"><%= h.title %></td>
-          <% else %>
-            <td> </td>
+<div class="contents__block -wide">
+  <div class="main">
+    <h1 class="main__title -h1">Historian</h1>
+    <div class="c-historian">
+      <table class="c-historian__table">
+        <tr>
+          <th class="c-historian__box -head">時期</th>
+          <% @technologies.each do |t| %>
+            <th class="c-historian__box -head"><%= t.name %></th>
           <% end %>
+        </tr>
+        <tr>
+          <th> </th>
+          <% @technologies.each do |t| %>
+            <th class="c-historian__box -vtop">
+              <%= render 'shared/tags', technology: t %>
+            </th>
+          <% end %>
+        </tr>
+        <% @histories.each do |h| %>
+          <tr>
+            <td class="c-historian__box -date"><%= date h.year, h.month, h.day %></td>
+            <% @technologies.each do |t| %>
 
-      <% end %>
+                <%if t.id == h.technology_id %>
+                  <td class="c-historian__box -data"><%= h.title %></td>
+                <% else %>
+                  <td class="c-historian__box -none"> </td>
+                <% end %>
 
-    </tr>
-  <% end %>
-</table>
+            <% end %>
+
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

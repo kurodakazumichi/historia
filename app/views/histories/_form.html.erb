@@ -1,31 +1,32 @@
-<% if history.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(history.errors.count, "error") %> prohibited this history from being saved:</h2>
+<%= form_for([technology, history], html: {class: "c-form"}) do |f| %>
 
-    <ul>
-    <% history.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
+  <% if history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(history.errors.count, "error") %> prohibited this history from being saved:</h2>
+
+      <ul>
+      <% history.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div><%= f.label "記念日" %></div>
+    <%= formYmd f %>
   </div>
-<% end %>
 
-<%= form_for([technology, history]) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field(:title, {placeholder:'enter title', class: "c-form__string"})  %>
+  </div>
 
-<div class="field">
-  <%= f.label :title %>
-  <%= f.text_field(:title, {placeholder:'enter title'})  %>
-</div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area(:description, class: "c-form__text") %>
+  </div>
 
-<div class="field">
-  <%= formYmd f %>
-</div>
-
-<div class="field">
-  <%= f.label :description %>
-  <%= f.text_area(:description) %>
-</div>
-
-<%= f.submit %>
+  <%= f.submit %>
 
 <% end %>

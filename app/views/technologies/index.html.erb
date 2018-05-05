@@ -1,32 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="contents__block -basic">
+  <div class="main">
+    <p id="notice"><%= notice %></p>
 
-<h1>Technologies</h1>
+    <h1 class="main__title -h1">Technologies</h1>
+    <%= link_to 'New Technology', new_technology_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>お名前</th>
-      <th>操作</th>
-      <th>概要</th>
-      <th>誕生日(年齢)</th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @technologies.each do |t| %>
-      <tr>
-        <td>
-          <%= link_to t.name, t %>
-          <%= render 'shared/tags', technology: t %>
-        </td>
-        <td>[<%= link_to '編集', edit_technology_path(t) %>] [<%= link_to '削除', t, method: :delete, data: { confirm: 'Are you sure?' } %>]</td>
-        <td><%= t.description.slice(0, 50) %>...</td>
-        <td><%= date(t.year, t.month, t.day) %>(<%= age(t.year, t.month, t.day) %>)</td>
-      </tr>
+      <h2 class="main__title -h2"><%= link_to t.name, t %></h2>
+      <%= render 'shared/tags', technology: t %>
+      <h3 class="main__title -h3"><%= date(t.year, t.month, t.day) %>(<%= age(t.year, t.month, t.day) %>)</h3>
+
+
+      <p><%= t.description %></p>
+      [<%= link_to '編集', edit_technology_path(t) %>]
+      [<%= link_to '削除', t, method: :delete, data: { confirm: 'Are you sure?' } %>]
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Technology', new_technology_path %>
+
+  </div>
+</div>

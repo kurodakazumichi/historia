@@ -1,51 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="contents__block -basic">
+  <div class="main">
 
-<h1><%= @technology.name %></h1>
+    <p id="notice"><%= notice %></p>
 
-<%= render 'shared/tags', technology: @technology %>
-<h2>誕生日：<%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)</h2>
+    <h1 class="main__title -h1"><%= @technology.name %></h1>
+    <%= render 'shared/tags', technology: @technology %>
+    <h2 class="main__title -h2"><%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)</h2>
 
-<p>
-  <%= simple_format @technology.description %>
-</p>
 
-<h2>歴史</h2>
-<%= link_to "New History", new_technology_history_path(@technology) %>
-<% if @technology.histories.any? %>
-<ul>
-  <% @histories.each do |history| %>
-  <li>
-    <%= date(history.year, history.month, history.day) %>
-    <%= history.title %>
-    <%= link_to(
-      '[Edit]',
-      edit_technology_history_path(@technology, history)
-    ) %>
-    <%= link_to(
-      '[x]',
-      technology_history_path(@technology, history),
-      {
-        method: :delete,
-        class: 'command',
-        data: { confirm: 'Sure?'}
-      }
-    ) %>
-  </li>
-  <% end %>
-</ul>
-<% end %>
+    <p><%= simple_format @technology.description %></p>
+    [<%= link_to '編集', edit_technology_path(@technology) %>]
+    [<%= link_to '戻る', technologies_path %>]
 
-<%= form_for([@technology, @technology.histories.build]) do |f| %>
-  <%= formYmd f %>
-  <%= f.text_field(:title, {placeholder:'enter title'})  %>
-  <%= f.submit %>
-<% end %>
 
-<%= link_to 'Edit', edit_technology_path(@technology) %> |
-<%= link_to 'Back', technologies_path %>
+    <h2 class="main__title -h2">歴史</h2>
+    <%= link_to "New History", new_technology_history_path(@technology) %>
+    <% if @technology.histories.any? %>
+    <ul>
+      <% @histories.each do |history| %>
+      <li>
+        <%= date(history.year, history.month, history.day) %>
+        <%= history.title %>
+        <%= link_to(
+          '[編集]',
+          edit_technology_history_path(@technology, history)
+        ) %>
+        <%= link_to(
+          '[✖]',
+          technology_history_path(@technology, history),
+          {
+            method: :delete,
+            class: 'command',
+            data: { confirm: 'Sure?'}
+          }
+        ) %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
 
-<script type="text/javascript">
-window.onload = function(){
-  document.getElementById('history_year').focus();
-}
-</script>
+    <%= form_for([@technology, @technology.histories.build]) do |f| %>
+      <%= formYmd f %>
+      <%= f.text_field(:title, {placeholder:'enter title'})  %>
+      <%= f.submit %>
+    <% end %>
+
+
+    <script type="text/javascript">
+    window.onload = function(){
+      document.getElementById('history_year').focus();
+    }
+    </script>
+  </div>
+</div>

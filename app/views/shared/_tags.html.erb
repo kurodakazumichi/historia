@@ -1,3 +1,7 @@
-<% technology.tags.pluck(:name).each do |name| %>
-  <%= name %>
-<% end %>
+<div class="c-tags">
+  <% technology.tags.pluck(:name).each do |name| %>
+    <div class="c-tags__tag">
+      <%= name %>
+    </div>
+  <% end %>
+</div>

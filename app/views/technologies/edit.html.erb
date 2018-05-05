@@ -1,6 +1,8 @@
-<h1>Editing Technology</h1>
-
-<%= render 'form', technology: @technology, tags: @tags %>
-
-<%= link_to 'Show', @technology %> |
-<%= link_to 'Back', technologies_path %>
+<div class="contents__block -basic">
+  <div class="main">
+    <h1 class="main__title -h1">Editing Technology</h1>
+    <%= render 'form', technology: @technology, tags: @tags %>
+    <%= link_to '詳細', @technology %> |
+    <%= link_to '戻る', technologies_path %>
+  </div>
+</div>

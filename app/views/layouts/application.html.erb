@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Historia</title>
+    <title>Historian</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,9 +9,18 @@
   </head>
 
   <body>
-    <%= link_to "historian", "/" %>
-    <%= link_to "tags", tags_path() %>
-    <%= link_to "technology", technologies_path() %>
-    <%= yield %>
+    <header class="header">
+      <div class="header__title"><%= link_to "Historian", "/" %></div>
+    </header>
+    <nav class="nav">
+      <menu class="nav__menu">
+        <%= link_to "Technologies", technologies_path() %>
+        <%= link_to "Tags", tags_path() %>
+      </menu>
+    </nav>
+    <div class="contents">
+      <%= yield %>
+    </div>
+    <footer class="footer__wrap">By Nekonecode</footer>
   </body>
 </html>
