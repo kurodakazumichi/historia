@@ -10,6 +10,8 @@ class Technology < ApplicationRecord
 
   def save_tags(tags)
 
+    return true if tags.nil?
+
     current_tags = self.tags.pluck(:name)
     old_tags = current_tags - tags;
     new_tags = tags - current_tags;
