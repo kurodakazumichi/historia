@@ -25,6 +25,14 @@
     <%= formYmd form %>
   </div>
 
+  <div class="field">
+    <%= select_tag(
+      'technology[tags]',
+      options_for_select(tags, technology.tags.pluck(:name)),
+      { multiple: true, include_blank: true }
+    ) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
