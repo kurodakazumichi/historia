@@ -21,4 +21,11 @@ module ApplicationHelper
     age += "くらい" if month.empty? || day.empty?
     return age
   end
+
+  def formYmd(f)
+    s  = f.text_field(:year, {placeholder:'1999', style: "width:40px"}) + "年"
+    s +=f.text_field(:month, {placeholder:'1', style: "width:20px"}) + "月"
+    s += f.text_field(:day, {placeholder:'1', style: "width:20px"}) + "日"
+    return s
+  end
 end

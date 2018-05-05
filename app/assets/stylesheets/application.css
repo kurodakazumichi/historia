@@ -33,3 +33,8 @@ h2 {
 p {
   font-size: 15px;
 }
+
+textarea {
+  width:800px;
+  height:300px;
+}
