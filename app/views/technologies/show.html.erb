@@ -2,6 +2,7 @@
 
 <h1><%= @technology.name %></h1>
 
+<%= render 'shared/tags', technology: @technology %>
 <h2>誕生日：<%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)</h2>
 
 <p>

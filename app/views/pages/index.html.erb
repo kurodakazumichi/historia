@@ -8,6 +8,14 @@
       <th><%= t.name %></th>
     <% end %>
   </tr>
+  <tr>
+    <th> </th>
+    <% @technologies.each do |t| %>
+      <th>
+        <%= render 'shared/tags', technology: t %>
+      </th>
+    <% end %>
+  </tr>
   <% @histories.each do |h| %>
     <tr>
       <td class="exists"><%= date h.year, h.month, h.day %></td>
