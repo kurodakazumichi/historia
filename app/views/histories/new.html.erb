@@ -1,38 +1,6 @@
 <h1>New History</h1>
 
-<% if @history.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@history.errors.count, "error") %> prohibited this history from being saved:</h2>
+<%= render 'form', technology: @technology, history: @history %>
 
-    <ul>
-    <% @history.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for([@technology, @technology.histories.build]) do |f| %>
-
-<div class="field">
-  <%= f.label :title %>
-  <%= f.text_field(:title, {placeholder:'enter title'})  %>
-</div>
-
-<div class="field">
-
-  <%= f.text_field(:year, {placeholder: '1999'}) %>
-  <%= f.text_field(:month, {placeholder: '1'}) %>
-  <%= f.text_field(:day, {placeholder: '1'}) %>
-</div>
-
-<div class="field">
-  <%= f.label :description %>
-  <%= f.text_area(:description) %>
-</div>
-
-<%= f.submit %>
-
-<% end %>
 
 <%= link_to("Back", @technology) %>
