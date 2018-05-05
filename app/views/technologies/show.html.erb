@@ -5,7 +5,7 @@
 <h2>誕生日：<%= date(@technology.year, @technology.month, @technology.day) %>(<%= age(@technology.year, @technology.month, @technology.day) %>)</h2>
 
 <p>
-  <%= @technology.description %>
+  <%= simple_format @technology.description %>
 </p>
 
 <h2>歴史</h2>
