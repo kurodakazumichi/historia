@@ -1,5 +1,6 @@
 class TechnologiesController < ApplicationController
   before_action :set_technology, only: [:show, :edit, :update, :destroy]
+  before_action :set_tags, only: [:new, :edit, :update, :create]
 
   # GET /technologies
   # GET /technologies.json
@@ -29,6 +30,7 @@ class TechnologiesController < ApplicationController
 
     respond_to do |format|
       if @technology.save
+        @technology.save_tags(params[:technology][:tags])
         format.html { redirect_to @technology, notice: 'Technology was successfully created.' }
         format.json { render :show, status: :created, location: @technology }
       else
@@ -43,6 +45,7 @@ class TechnologiesController < ApplicationController
   def update
     respond_to do |format|
       if @technology.update(technology_params)
+        @technology.save_tags(params[:technology][:tags])
         format.html { redirect_to @technology, notice: 'Technology was successfully updated.' }
         format.json { render :show, status: :ok, location: @technology }
       else
@@ -66,6 +69,11 @@ class TechnologiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_technology
       @technology = Technology.find(params[:id])
+    end
+
+    # Use by tag select box. use case are new, edit, create, update.
+    def set_tags
+      @tags = Tag.all.pluck(:name, :name)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
