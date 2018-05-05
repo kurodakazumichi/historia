@@ -1,2 +1,27 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<h1>Historia</h1>
+<%= link_to("Technology", technologies_path()) %>
+
+<table>
+  <tr>
+    <th style="width:100px">時期</th>
+    <% @technologies.each do |t| %>
+      <th><%= t.name %></th>
+    <% end %>
+  </tr>
+  <% @histories.each do |h| %>
+    <tr>
+      <td class="exists"><%= date h.year, h.month, h.day %></td>
+      <% @technologies.each do |t| %>
+
+
+          <%if t.id == h.technology_id %>
+            <td class="exists"><%= h.title %></td>
+          <% else %>
+            <td> </td>
+          <% end %>
+
+      <% end %>
+
+    </tr>
+  <% end %>
+</table>
