@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504161929) do
+ActiveRecord::Schema.define(version: 20180505040838) do
 
   create_table "histories", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20180504161929) do
     t.index ["technology_id"], name: "index_histories_on_technology_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "technologies", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -32,6 +38,15 @@ ActiveRecord::Schema.define(version: 20180504161929) do
     t.string "year"
     t.string "month"
     t.string "day"
+  end
+
+  create_table "technology_tags", force: :cascade do |t|
+    t.integer "technology_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_technology_tags_on_tag_id"
+    t.index ["technology_id"], name: "index_technology_tags_on_technology_id"
   end
 
 end
