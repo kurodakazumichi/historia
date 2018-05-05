@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tags
   root 'pages#index'
 
   resources :technologies do
