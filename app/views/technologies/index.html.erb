@@ -15,7 +15,9 @@
   <tbody>
     <% @technologies.each do |t| %>
       <tr>
-        <td><%= link_to t.name, t %></td>
+        <td>
+          <%= link_to t.name, t %>
+        </td>
         <td>[<%= link_to '編集', edit_technology_path(t) %>] [<%= link_to '削除', t, method: :delete, data: { confirm: 'Are you sure?' } %>]</td>
         <td><%= t.description.slice(0, 50) %>...</td>
         <td><%= date(t.year, t.month, t.day) %>(<%= age(t.year, t.month, t.day) %>)</td>
