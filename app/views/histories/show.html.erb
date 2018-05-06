@@ -1,0 +1,9 @@
+<div class="contents__block -basic">
+  <div class="main">
+    <h1 class="main__title -h1"><%= "#{date(@history.year, @history.month, @history.day)}　#{@history.title}(#{@technology.name})" %></h1>
+
+    <p><%= @history.description %></p>
+    <%= link_to("編集", edit_technology_history_path(@technology, @history)) %>
+    <%= link_to("戻る", @technology) %>
+  </div>
+</div>

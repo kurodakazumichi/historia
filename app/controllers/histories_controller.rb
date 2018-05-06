@@ -1,5 +1,10 @@
 class HistoriesController < ApplicationController
 
+  def show
+    @technology = Technology.find(params[:technology_id])
+    @history = @technology.histories.find(params[:id])
+  end
+
   def new
     @technology = Technology.find(params[:technology_id])
     @history = @technology.histories.new
