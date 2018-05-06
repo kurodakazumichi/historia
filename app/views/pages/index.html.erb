@@ -6,7 +6,7 @@
         <tr>
           <th class="c-historian__box -head">時期</th>
           <% @technologies.each do |t| %>
-            <th class="c-historian__box -head"><%= t.name %></th>
+            <th class="c-historian__box -head" title="<%= t.description %>"><%= t.name %></th>
           <% end %>
         </tr>
         <tr>
@@ -18,12 +18,12 @@
           <% end %>
         </tr>
         <% @histories.each do |h| %>
-          <tr>
+          <tr title="<%= date h.year, h.month, h.day %>">
             <td class="c-historian__box -date"><%= date h.year, h.month, h.day %></td>
             <% @technologies.each do |t| %>
 
                 <%if t.id == h.technology_id %>
-                  <td class="c-historian__box -data"><%= h.title %></td>
+                  <td class="c-historian__box -data" title="<%= h.description %>"><%= link_to h.title, technology_history_path(t, h) %></td>
                 <% else %>
                   <td class="c-historian__box -none"> </td>
                 <% end %>

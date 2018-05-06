@@ -20,7 +20,7 @@
       <% @histories.each do |history| %>
       <li>
         <%= date(history.year, history.month, history.day) %>
-        <%= history.title %>
+        <%= link_to history.title, technology_history_path(@technology, history) %>
         <%= link_to(
           '[編集]',
           edit_technology_history_path(@technology, history)
