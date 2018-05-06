@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20180505040838) do
     t.integer "technology_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "year"
-    t.string "month"
-    t.string "day"
+    t.integer "year"
+    t.integer "month"
+    t.integer "day"
     t.index ["technology_id"], name: "index_histories_on_technology_id"
   end
 
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20180505040838) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "year"
-    t.string "month"
-    t.string "day"
+    t.integer "year"
+    t.integer "month"
+    t.integer "day"
   end
 
   create_table "technology_tags", force: :cascade do |t|
