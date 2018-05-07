@@ -1,5 +1,26 @@
 <div class="contents__block -wide">
   <div class="main">
+    <div class="">
+      <%= form_with url: root_path, method: :get, local: true do |f| %>
+      <table>
+        <tr>
+          <th>いつごろ？</th>
+          <td>
+            <%= select :search, :from, @years, { selected: @filter[:from] } %>年 ～ <%= select :search, :to, @years, { selected: @filter[:to] } %>年
+          </td>
+        </tr>
+        <tr>
+          <th>何知りたい？</th>
+          <td>
+              <%= text_field :search, :query, {value: @filter[:query], placeholder: "プログラム フロントエンド etc..."} %>
+          </td>
+        </tr>
+      </table>
+
+      <%= f.submit %>
+      <% end %>
+    </div>
+
     <h1 class="main__title -h1">Historian</h1>
     <div class="c-historian">
       <table class="c-historian__table">
