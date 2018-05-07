@@ -30,7 +30,7 @@ Vagrant + Centos6.9
 ### host machine
 cd "my vagrant directory"
 vagrant up
-ssh vagrant
+vagrant ssh
 
 ### vagrant
 cd ~/historia
