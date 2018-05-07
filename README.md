@@ -5,6 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
+* Environment
+Vagrant + Centos6.9
+
 * Ruby version
 
 * System dependencies
@@ -20,5 +23,18 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
+* Memos
+
+```shell
+### host machine
+cd "my vagrant directory"
+vagrant up
+ssh vagrant
+
+### vagrant
+cd ~/historia
+rails s -b 0.0.0.0 # up puma server.
+```
 
 * ...
